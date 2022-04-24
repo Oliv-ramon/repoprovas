@@ -49,10 +49,10 @@ export default function SignIn() {
 			const { data: Auth } = await api.signIn(formData);
 			persistLogged(Auth);
 			setLoading(false);
-		} catch (error) {
+		} catch (error: Error | any) {
 			setLoading(false);
-      console.log(error)
-			alert("Houve um erro ao cadastrar, tente novamente");
+			const errorMessage = error.response.data;
+			alert(errorMessage);
 		} 
   }
 

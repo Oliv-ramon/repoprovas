@@ -1,5 +1,6 @@
 import { Button, Divider } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Container, GitHubLoginButton, Logo, StyledLink, Title } from "../../components";
 import { Form, Input, Footer } from "../../components/FormComponents";
@@ -21,6 +22,7 @@ export default function SignIn() {
   });
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   function handleChange({ target }: OnChangeEvent) {
     const formDataValues = Object.values(formData);
@@ -56,10 +58,11 @@ export default function SignIn() {
     try {
 			await api.signUp(formData);
 			setLoading(false);
-		} catch (error) {
+      navigate("/");
+		} catch (error: Error | any) {
 			setLoading(false);
-      console.log(error)
-			alert("Houve um erro ao cadastrar, tente novamente");
+			const errorMessage = error.response.data;
+			alert(errorMessage);
 		} 
   }
 
@@ -100,7 +103,7 @@ export default function SignIn() {
         />
         <Footer>
           <StyledLink to="/">Já possuo cadastro</StyledLink>
-          <Button  type="submit" variant="contained">CADASTRAR</Button>
+          <Button  type="submit" disabled={loading} variant="contained">CADASTRAR</Button>
         </Footer>
       </Form>
     </Container>

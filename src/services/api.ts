@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = process.env.BASE_URL;
-
+const baseURL = process.env.REACT_APP_API;
+console.log(baseURL)
 const route = axios.create({
   baseURL
 });
@@ -17,11 +17,11 @@ export interface Auth {
 }
 
 async function signUp(formData: FormData) {
-  return route.post("/auth/register", formData);
+  return route.post("/users", formData);
 };
 
 async function signIn(formData: FormData) {
-  return route.post<Auth>("/auth/login", formData);
+  return route.post<Auth>("/users/login", formData);
 };
 
 const api = {

@@ -6,7 +6,16 @@ import { Form, Input, Footer } from "../../components/FormComponents";
 
 
 export default function SignIn() {
-  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [formStates, setFormStates] = useState({
+    loading: false,
+    showPassword: false,
+  });
+
 
   return (
   <>
@@ -19,12 +28,12 @@ export default function SignIn() {
         <Input 
           label="Email"
           type="email"
-          disabled={loading} 
+          disabled={formStates.loading} 
         />
         <Input 
           label="Password"
           type="password"
-          disabled={loading} 
+          disabled={formStates.loading}
         />
         <Footer>
           <StyledLink to="/sign-up">Não possuo cadastro</StyledLink>

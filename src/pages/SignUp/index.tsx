@@ -1,48 +1,39 @@
-import { Button } from "@mui/material";
+import { Button, Divider } from "@mui/material";
 import { useState } from "react";
 
-import { Container, Footer, GitHubLoginButton, Logo, Separator, StyledLink } from "../../components";
-import { Form, Input } from "../../components/FormComponents";
+import { Container, GitHubLoginButton, Logo, StyledLink, Title } from "../../components";
+import { Form, Input, Footer } from "../../components/FormComponents";
 
 
-export default function SignUp() {
+export default function SignIn() {
   const [loading, setLoading] = useState(false);
 
   return (
   <>
     <Logo/>
     <Container>
-      <h1>Cadastrar</h1>
-      <GitHubLoginButton>
-        Entrar com GitHub
-      </GitHubLoginButton>
-      <Separator/>
+      <Title>Cadastrar</Title>
+      <GitHubLoginButton>Entrar com GitHub</GitHubLoginButton>
+      <Divider sx={{width:"100%"}}>ou</Divider>
       <Form>
         <Input 
-          disabled={loading} 
+          label="Email"
           type="email"
+          disabled={loading} 
         />
         <Input 
-          disabled={loading} 
-          type="password"
           label="Confirme sua senha"
+          type="password"
+          disabled={loading} 
         />
         <Input 
-          disabled={loading} 
-          type="password"
           label="Password"
+          type="password"
+          disabled={loading} 
         />
         <Footer>
-          <StyledLink 
-            to="/"
-          >
-            Já possuo cadastro
-          </StyledLink>
-          <Button 
-            variant="contained"
-          >
-            CADASTRAR
-          </Button>
+          <StyledLink to="/">Já possuo cadastro</StyledLink>
+          <Button variant="contained">CADASTRAR</Button>
         </Footer>
       </Form>
     </Container>

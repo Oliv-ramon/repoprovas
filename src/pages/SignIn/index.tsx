@@ -1,8 +1,8 @@
-import { Button } from "@mui/material";
+import { Button, Divider } from "@mui/material";
 import { useState } from "react";
 
-import { Container, Footer, GitHubLoginButton, Logo, Separator, StyledLink } from "../../components";
-import { Form, Input } from "../../components/FormComponents";
+import { Container, GitHubLoginButton, Logo, StyledLink, Title } from "../../components";
+import { Form, Input, Footer } from "../../components/FormComponents";
 
 
 export default function SignIn() {
@@ -12,11 +12,9 @@ export default function SignIn() {
   <>
     <Logo/>
     <Container>
-      <h1>Login</h1>
-      <GitHubLoginButton>
-        Entrar com GitHub
-      </GitHubLoginButton>
-      <Separator/>
+      <Title>Login</Title>
+      <GitHubLoginButton>Entrar com GitHub</GitHubLoginButton>
+      <Divider sx={{width:"100%"}}>ou</Divider>
       <Form>
         <Input 
           label="Email"
@@ -29,16 +27,8 @@ export default function SignIn() {
           disabled={loading} 
         />
         <Footer>
-          <StyledLink 
-            to="/sign-up"
-          >
-            Não possuo cadastro
-          </StyledLink>
-          <Button 
-            variant="contained"
-          >
-            Entrar
-          </Button>
+          <StyledLink to="/sign-up">Não possuo cadastro</StyledLink>
+          <Button variant="contained">Entrar</Button>
         </Footer>
       </Form>
     </Container>

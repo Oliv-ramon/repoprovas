@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledLink = styled(Link)`
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 24px;
 
   text-decoration-line: underline;
@@ -13,10 +13,6 @@ const StyledLink = styled(Link)`
   :hover {
     cursor: pointer;
     text-decoration-color: #067EFC;
-  }
-
-  :active {
-
   }
 `;
 

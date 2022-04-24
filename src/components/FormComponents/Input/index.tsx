@@ -3,19 +3,20 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 
 interface Props {
-  type: string,
-  disabled: boolean,
+  type: string
+  disabled: boolean
   label?: string
+  showPassword?: boolean
 }
 
-export default function Input({ type, disabled, label }: Props) {
+export default function Input({ type, disabled, label, showPassword }: Props) {
   const endAdornment = type === "password" ? (
     <InputAdornment position="end">
       <IconButton 
         aria-label="toggle password visibility"
         edge="end"
       >
-        {true ? <VisibilityOff/> : <Visibility/>}
+        {showPassword ? <VisibilityOff/> : <Visibility/>}
       </IconButton>
     </InputAdornment>
   ) : null;
@@ -30,7 +31,7 @@ export default function Input({ type, disabled, label }: Props) {
         endAdornment
       }}
       InputLabelProps={{
-        sx: {color: "#00000099"}
+        sx: { color: "#00000099" }
       }}
     />
   )

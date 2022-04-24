@@ -1,15 +1,13 @@
 import Logo from "./Logo";
 import Container from "./Container";
 import GitHubLoginButton from "./GitHubLoginButton";
-import Separator from "./Separator";
-import Footer from "./Footer";
 import StyledLink from "./StyledLink";
+import Title from "./Title";
 
 export {
   Logo,
+  Title,
   Container,
   GitHubLoginButton,
-  Separator,
-  Footer,
   StyledLink
 };

@@ -6,11 +6,26 @@ import { useState } from "react";
 interface Props {
   type: string
   disabled: boolean
-  label?: string
+  label: string
+  name: string
+  value: string
+  onChange: React.ChangeEventHandler<HTMLInputElement>
+  error: boolean
 }
 
-export default function Input({ type, disabled, label }: Props) {
+export default function Input({ 
+  type,
+  disabled,
+  label,
+  name,
+  value,
+  onChange,
+  error
+}: Props) {
   const [showPassword, setShowPassword] = useState(false);
+  const passwordInputType = showPassword ? "text" : "password";
+
+
 
   const endAdornment = type === "password" ? (
     <InputAdornment position="end">
@@ -19,7 +34,7 @@ export default function Input({ type, disabled, label }: Props) {
         edge="end"
         onClick={() => setShowPassword(!showPassword)}
       >
-        {showPassword ? <VisibilityOff/> : <Visibility/>}
+        {showPassword ? <Visibility/> : <VisibilityOff/>}
       </IconButton>
     </InputAdornment>
   ) : null;
@@ -28,8 +43,12 @@ export default function Input({ type, disabled, label }: Props) {
   return (
     <TextField
       label={label}
-      type={type}
+      type={type !== "password" ? type : passwordInputType}
+      name={name}
+      value={value}
+      onChange={onChange}
       disabled={disabled}
+      error={error && value === ""}
       InputProps={{
         endAdornment
       }}

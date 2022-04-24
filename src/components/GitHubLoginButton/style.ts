@@ -5,6 +5,9 @@ const style: SxProps = {
   backgroundColor: "#424445",
   ":focus": {
     backgroundColor: "#424445",
+  },
+  ":hover": {
+    backgroundColor: "#424445",
   }
 }
 

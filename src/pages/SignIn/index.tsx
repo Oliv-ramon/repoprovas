@@ -19,13 +19,14 @@ export default function SignIn() {
       <Separator/>
       <Form>
         <Input 
-          disabled={loading} 
+          label="Email"
           type="email"
+          disabled={loading} 
         />
         <Input 
-          disabled={loading} 
-          type="password"
           label="Password"
+          type="password"
+          disabled={loading} 
         />
         <Footer>
           <StyledLink 

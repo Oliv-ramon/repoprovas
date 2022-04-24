@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+.root {
+  height: 100vh;
+  padding: 55px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  
+  font-family: 'Poppins', sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+}

@@ -4,13 +4,12 @@
 
 .root {
   height: 100vh;
-  padding: 55px;
+  padding: 55px 83px;
 
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   
   font-family: 'Poppins', sans-serif;
   color: rgba(0, 0, 0, 0.8);

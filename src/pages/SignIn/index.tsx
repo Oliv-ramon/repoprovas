@@ -1,5 +1,6 @@
 import { Button, Divider } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Container, GitHubLoginButton, Logo, StyledLink, Title } from "../../components";
 import { Form, Input, Footer } from "../../components/FormComponents";
@@ -20,7 +21,8 @@ export default function SignIn() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const { persistLogged } = useAuth();
+  const { persistLogged, auth } = useAuth();
+  const navigate = useNavigate();
 
   function handleChange({ target }: OnChangeEvent) {
     const formDataValues = Object.values(formData);
@@ -49,12 +51,21 @@ export default function SignIn() {
 			const { data: Auth } = await api.signIn(formData);
 			persistLogged(Auth);
 			setLoading(false);
+      navigate("/");
 		} catch (error: Error | any) {
 			setLoading(false);
 			const errorMessage = error.response.data;
 			alert(errorMessage);
 		} 
   }
+
+  useEffect(() => {
+    console.log(auth)
+    const authExist = auth !== null;
+    const haveToken = auth?.token !== null; 
+
+    if (authExist && haveToken) navigate("/");
+  },[]);
 
   return (
   <>

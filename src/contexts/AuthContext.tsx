@@ -20,12 +20,13 @@ export function AuthProvider({ children }: Props) {
 		localStorage.setItem("auth", JSON.stringify(authData));
 	}
 
-	function removeLogged() {
+	function logout() {
 		localStorage.removeItem("auth");
+		setAuth(null);
 	}
 
 	return (
-		<AuthContext.Provider value={{ auth, persistLogged, removeLogged }}>
+		<AuthContext.Provider value={{ auth, persistLogged, logout }}>
 			{children}
 		</AuthContext.Provider>
 	);

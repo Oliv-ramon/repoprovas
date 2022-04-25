@@ -60,6 +60,7 @@ export default function SignIn() {
   }
 
   useEffect(() => {
+    console.log(auth)
     const authExist = auth !== null;
     const haveToken = auth?.token !== null; 
 
